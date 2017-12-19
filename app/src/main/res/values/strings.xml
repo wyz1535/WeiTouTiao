@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">微头条</string>
+    <string name="rb_news">新闻</string>
+    <string name="rb_picture">图片</string>
+    <string name="rb_video">视频</string>
+    <string name="rb_account">头条号</string>
+    <string name="change_theme">改变主题</string>
+    <string name="item_setting">设置</string>
+    <string name="item_share">分享</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="click_sourch">点击这里搜索</string>
+    <string name="click_navigation">点击这里展开侧栏</string>
+</resources>

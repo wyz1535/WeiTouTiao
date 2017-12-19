@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay"  parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="main_footer_style">
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">6dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/main_text_selector</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center_horizontal</item>
+
+    </style>
+
+    <style name="TabLayout" parent="Base.Widget.Design.TabLayout">
+        <item name="tabMaxWidth">@dimen/design_tab_max_width</item>
+        <item name="tabIndicatorColor">#FFFFFF</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabPaddingStart">12dp</item>
+        <item name="tabPaddingEnd">12dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabTextAppearance">@style/TextAppearance.Design.Tab</item>
+        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+    </style>
+
+</resources>
