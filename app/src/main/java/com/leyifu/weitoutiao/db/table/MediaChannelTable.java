@@ -19,12 +19,12 @@ public class MediaChannelTable {
     public static final String DESCTEXT = "descText";
     public static final String URL = "url";
 
-    public static final String CREATE_TABLE = "create table if not exists" + TABLENAME
+    public static final String CREATE_TABLE = "create table if not exists " + TABLENAME
             + "(" + ID + " text primary key ,"
             + NAME + " text, "
             + AVATAR + " text, "
             + TYPE + " text, "
             + FOLLOWCOUNT + " text, "
             + DESCTEXT + " text, "
-            + URL + " text,)";
+            + URL + " text)";
 }

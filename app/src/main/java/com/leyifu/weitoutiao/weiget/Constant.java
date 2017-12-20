@@ -21,4 +21,6 @@ public class Constant {
 
     public static final String[] ICONS_TYPE = new String[]{"circle", "rect", "square"};
 
+    public static final int NEWS_CHANNEL_ENABLE = 1;
+    public static final int NEWS_CHANNEL_DISABLE = 0;
 }

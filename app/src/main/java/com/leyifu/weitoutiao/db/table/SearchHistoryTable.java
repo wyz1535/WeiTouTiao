@@ -15,8 +15,8 @@ public class SearchHistoryTable {
     public static final String KEYWORD = "keyWord";
     public static final String TIME = "time";
 
-    public static final String CREATE_TABLE = "create table if not exists" + TABLENAME
+    public static final String CREATE_TABLE = "create table if not exists " + TABLENAME
             + "(" + ID + " text auto_increment, "
             + KEYWORD + " text primary key, "
-            + TIME + " text) ";
+            + TIME + " text ) ";
 }
