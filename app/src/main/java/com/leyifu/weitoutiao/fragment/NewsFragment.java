@@ -13,13 +13,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.leyifu.weitoutiao.R;
-import com.leyifu.weitoutiao.adapter.NewsChannelAdapter;
+import com.leyifu.weitoutiao.RxBus;
+import com.leyifu.weitoutiao.adapter.BaseAdapter;
 import com.leyifu.weitoutiao.bean.NewsChannelBean;
 import com.leyifu.weitoutiao.db.dao.NewsChannelDao;
 import com.leyifu.weitoutiao.fragment.newsframgent.ArticleFragment;
 import com.leyifu.weitoutiao.fragment.newsframgent.EssayOrQuestionFragment;
 import com.leyifu.weitoutiao.fragment.newsframgent.JokeContentFragment;
-import com.leyifu.weitoutiao.weiget.Constant;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +30,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import constant.Constant;
+import io.reactivex.Observable;
+import io.reactivex.functions.Consumer;
 
 public class NewsFragment extends Fragment {
 
@@ -49,6 +52,7 @@ public class NewsFragment extends Fragment {
 
     private List<Fragment> fragments;
     private List<String> titles;
+    private Observable<Boolean> observable;
 
     @SuppressLint("ValidFragment")
     private NewsFragment() {
@@ -73,7 +77,18 @@ public class NewsFragment extends Fragment {
         unbinder = ButterKnife.bind(this, view);
 
         initTabs();
-        NewsChannelAdapter adapter = new NewsChannelAdapter(getChildFragmentManager(), titles, fragments);
+        final BaseAdapter adapter = new BaseAdapter(getChildFragmentManager(), titles, fragments);
+        observable = RxBus.getInstance().register(TAG);
+        observable.subscribe(new Consumer<Boolean>() {
+            @Override
+            public void accept(Boolean isRefresh) throws Exception {
+                if (isRefresh) {
+                    initTabs();
+                    adapter.recreateItem(titles, fragments);
+                }
+            }
+        });
+
         viewPagerNews.setAdapter(adapter);
         viewPagerNews.setOffscreenPageLimit(15);
         tabNews.setupWithViewPager(viewPagerNews);

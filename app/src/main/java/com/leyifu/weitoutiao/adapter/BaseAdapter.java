@@ -10,12 +10,12 @@ import java.util.List;
  * Created by hahaha on 2017/12/20 0020.
  */
 
-public class NewsChannelAdapter extends FragmentPagerAdapter {
+public class BaseAdapter extends FragmentPagerAdapter {
 
     private List<Fragment> fragments;
     private List<String> titles;
 
-    public NewsChannelAdapter(FragmentManager fm, List<String> titles, List<Fragment> fragments) {
+    public BaseAdapter(FragmentManager fm, List<String> titles, List<Fragment> fragments) {
         super(fm);
         this.titles = titles;
         this.fragments = fragments;
@@ -29,11 +29,17 @@ public class NewsChannelAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return fragments.size();
+        return titles == null ? 0 : titles.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         return titles.get(position);
+    }
+
+    public void recreateItem(List<String> titles, List<Fragment> fragments) {
+        this.titles = titles;
+        this.fragments = fragments;
+        notifyDataSetChanged();
     }
 }

@@ -1,4 +1,4 @@
-package com.leyifu.weitoutiao.weiget;
+package constant;
 
 import com.leyifu.weitoutiao.R;
 

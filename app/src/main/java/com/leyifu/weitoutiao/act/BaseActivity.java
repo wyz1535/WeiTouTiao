@@ -16,7 +16,7 @@ import com.afollestad.materialdialogs.color.CircleView;
 import com.leyifu.weitoutiao.R;
 import com.leyifu.weitoutiao.util.ActivityCollections;
 import com.leyifu.weitoutiao.util.SettingUtil;
-import com.leyifu.weitoutiao.weiget.Constant;
+import constant.Constant;
 import com.r0adkll.slidr.Slidr;
 import com.r0adkll.slidr.model.SlidrConfig;
 import com.r0adkll.slidr.model.SlidrInterface;

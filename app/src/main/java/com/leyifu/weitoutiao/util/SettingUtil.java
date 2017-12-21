@@ -6,7 +6,7 @@ import android.preference.PreferenceManager;
 
 import com.leyifu.weitoutiao.InitApp;
 import com.leyifu.weitoutiao.R;
-import com.leyifu.weitoutiao.weiget.Constant;
+import constant.Constant;
 
 /**
  * Created by hahaha on 2017/12/6 0006.

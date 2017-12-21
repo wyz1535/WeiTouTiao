@@ -9,7 +9,7 @@ import com.leyifu.weitoutiao.R;
 import com.leyifu.weitoutiao.bean.NewsChannelBean;
 import com.leyifu.weitoutiao.db.DatabaseHelper;
 import com.leyifu.weitoutiao.db.table.NewsChannelTable;
-import com.leyifu.weitoutiao.weiget.Constant;
+import constant.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
