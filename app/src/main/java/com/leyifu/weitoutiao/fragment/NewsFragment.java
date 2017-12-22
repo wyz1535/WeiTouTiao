@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.leyifu.weitoutiao.R;
 import com.leyifu.weitoutiao.RxBus;
@@ -20,6 +21,7 @@ import com.leyifu.weitoutiao.db.dao.NewsChannelDao;
 import com.leyifu.weitoutiao.fragment.newsframgent.ArticleFragment;
 import com.leyifu.weitoutiao.fragment.newsframgent.EssayOrQuestionFragment;
 import com.leyifu.weitoutiao.fragment.newsframgent.JokeContentFragment;
+import com.leyifu.weitoutiao.util.SettingUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,6 +46,8 @@ public class NewsFragment extends Fragment {
     @BindView(R.id.news_view_pager)
     ViewPager viewPagerNews;
     Unbinder unbinder;
+    @BindView(R.id.ll_news_tab)
+    LinearLayout llNewsTab;
     private View view;
     private static NewsFragment mInstance;
 
@@ -76,7 +80,17 @@ public class NewsFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_news, container, false);
         unbinder = ButterKnife.bind(this, view);
 
+        llNewsTab.setBackgroundColor(SettingUtil.getInstance().getThemeColor());
+
+        initData();
+
+
+        return view;
+    }
+
+    private void initData() {
         initTabs();
+
         final BaseAdapter adapter = new BaseAdapter(getChildFragmentManager(), titles, fragments);
         observable = RxBus.getInstance().register(TAG);
         observable.subscribe(new Consumer<Boolean>() {
@@ -93,8 +107,6 @@ public class NewsFragment extends Fragment {
         viewPagerNews.setOffscreenPageLimit(15);
         tabNews.setupWithViewPager(viewPagerNews);
         Log.e(TAG, "onCreateView: " + titles + fragments + " &fragments=" + fragments.size());
-
-        return view;
     }
 
     private void initTabs() {
@@ -169,6 +181,8 @@ public class NewsFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+
+        RxBus.getInstance().unRegister(TAG, observable);
 
         if (mInstance != null) {
 

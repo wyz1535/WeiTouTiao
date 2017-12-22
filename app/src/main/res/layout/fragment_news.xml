@@ -7,6 +7,7 @@
     tools:context="com.leyifu.weitoutiao.fragment.NewsFragment">
 
     <LinearLayout
+        android:id="@+id/ll_news_tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
@@ -20,8 +21,7 @@
             android:layout_weight="1"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/AppTheme.AppBarOverlay"
-            app:tabMode="scrollable"
-            />
+            app:tabMode="scrollable" />
 
         <ImageView
             android:id="@+id/iv_news_add"

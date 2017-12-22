@@ -62,6 +62,10 @@ public class SettingUtil {
         return color;
     }
 
+    public void setThemeColor(int color) {
+        setting.edit().putInt("color",color).apply();
+    }
+
     /**
      * @return 获取图标值
      */
